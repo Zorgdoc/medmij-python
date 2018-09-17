@@ -1,19 +1,9 @@
 # pylint: skip-file
-from typing import Any, AnyStr
 from unittest import TestCase
-from unittest.mock import patch, MagicMock
 import lxml
 
 import medmij
 from . import testdata
-
-
-def string_urlopen(response_string: AnyStr) -> Any:
-    response = MagicMock()
-    response.__enter__.return_value = response
-    response.getcode.return_value = 200
-    response.read.return_value = response_string
-    return response
 
 
 class TestWhitelist(TestCase):
@@ -40,9 +30,10 @@ class TestWhitelist(TestCase):
         self.assertNotIn("RFC-RSO.NL", whitelist)
         self.assertNotIn(None, whitelist)
 
-    def test_whitelist_download(self) -> None:
-        with patch('urllib.request.urlopen') as mock_urlopen:
-            mock_urlopen.return_value = string_urlopen(
-                testdata.WHITELIST_EXAMPLE_XML)
-            whitelist = medmij.Whitelist.from_url("http://example.com/")
-        self.assertIsInstance(whitelist, medmij.Whitelist)
+    def test_zal_iter(self) -> None:
+        whitelist = medmij.Whitelist(testdata.WHITELIST_EXAMPLE_XML)
+        self.assertIsInstance(len(whitelist), int)
+        self.assertGreaterEqual(len(whitelist), 1)
+        whlst = list(whitelist)
+        for e in whlst:
+            self.assertIsInstance(e, str)

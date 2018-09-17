@@ -9,11 +9,16 @@ test:
   stage: test
   image: 'python:3.7'
   script:
-    - python3.7 -m pip install pycodestyle pylint mypy lxml
-    - python3.7 setup.py test
+    - python3.7 -m pip install pycodestyle pylint mypy lxml coverage
+    - python3.7 -m coverage run --branch --source=medmij setup.py nosetests --with-doctest
+    - python3.7 -m coverage report
+    - python3.7 -m coverage html
     - python3.7 -m pycodestyle medmij
     - python3.7 -m pylint medmij
     - python3.7 -m mypy medmij
+  artifacts:
+    paths:
+      - htmlcov
 
 pages:
   only:
@@ -23,6 +28,7 @@ pages:
   script:
     - doxygen
     - mv html public
+    - mv htmlcov public/
   artifacts:
     paths:
       - public

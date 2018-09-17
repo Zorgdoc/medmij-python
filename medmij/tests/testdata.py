@@ -12,3 +12,10 @@ WHITELIST_XSD_FAIL1 = "<test/>"
 WHITELIST_XSD_FAIL2 = """<Whitelist
     xmlns="xmlns://afsprakenstelsel.medmij.nl/whitelist/release2/"
 />"""
+
+ZAL_EXAMPLE_XML = _load("zal_example.xml")
+ZAL_EXAMPLE_EMPTY_XML = _load("zal_example_empty.xml")
+ZAL_XSD_FAIL1 = "<test/>"
+ZAL_XSD_FAIL2 = """<ZAL
+    xmlns="xmlns://afsprakenstelsel.medmij.nl/zorgaanbiederslijst/release2/"
+/>"""
