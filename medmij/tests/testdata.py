@@ -19,3 +19,5 @@ ZAL_XSD_FAIL1 = "<test/>"
 ZAL_XSD_FAIL2 = """<ZAL
     xmlns="xmlns://afsprakenstelsel.medmij.nl/zorgaanbiederslijst/release2/"
 />"""
+
+OAUTHCLIENTLIST_EXAMPLE_XML = _load("oauthclientlist_example.xml")
