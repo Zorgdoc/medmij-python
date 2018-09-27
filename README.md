@@ -30,7 +30,7 @@ import urllib.request
 
 import medmij
 
-WHITELIST_URL = "http://gids.samenbeter.org/openpgoexamples/whitelist-voorbeeld-v1.0.xml"
+WHITELIST_URL = "http://gids.samenbeter.org/openpgoexamples/1.0/whitelist-voorbeeld-v1.0.xml"
 
 with urllib.request.urlopen(WHITELIST_URL) as u:
     whitelist_xml = u.read()
@@ -45,8 +45,8 @@ Run `whitelist.py`:
 
 ```shell
 (env) $ python whitelist.py
-...
-lxml.etree.XMLSyntaxError: Element '{http://afsprakenstelsel.medmij.nl/whitelist/1_0/schema/}Whitelist': No matching global declaration available for the validation root.
+True
+False
 ```
 
 ### ZAL
@@ -56,7 +56,7 @@ import urllib.request
 
 import medmij
 
-ZAL_URL = "http://gids.samenbeter.org/openpgoexamples/zorgaanbiederslijst-voorbeeld-v1.0.xml"
+ZAL_URL = "http://gids.samenbeter.org/openpgoexamples/1.0/zorgaanbiederslijst-voorbeeld-v1.0.xml"
 
 with urllib.request.urlopen(ZAL_URL) as u:
     zal_xml = u.read()
@@ -70,8 +70,7 @@ Run `zal.py`:
 
 ```shell
 (env) $ python zal.py
-...
-lxml.etree.XMLSyntaxError: Element '{http://afsprakenstelsel.medmij.nl/zorgaanbiederslijst/1_0/schema/}Zorgaanbiederslijst': No matching global declaration available for the validation root.
+https://medmij.za982.xisbridge.net/oauth/authorize
 ```
 
 ### OCL
@@ -81,7 +80,7 @@ import urllib.request
 
 import medmij
 
-OCL_URL = "http://gids.samenbeter.org/openpgoexamples/oauthclientlist-voorbeeld-v1.0.xml"
+OCL_URL = "http://gids.samenbeter.org/openpgoexamples/1.0/oauthclientlist-voorbeeld-v1.0.xml"
 
 with urllib.request.urlopen(OCL_URL) as u:
     ocl_xml = u.read()
@@ -96,6 +95,5 @@ Run `ocl.py`:
 
 ```shell
 (env) $ python ocl.py
-...
-lxml.etree.XMLSyntaxError: Element '{http://afsprakenstelsel.medmij.nl/oauthclientlist/1_0/schema/}OAuthclientlist': No matching global declaration available for the validation root.
+De Enige Echte PGO
 ```
