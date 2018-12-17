@@ -41,7 +41,12 @@ class Whitelist(Set[str]):
     @staticmethod
     def _parse(xml: etree.Element) -> Set[str]:
         nss = {'w': Whitelist.NS}
-        return set(xml.xpath(f'//w:MedMijNode/text()', namespaces=nss))
+        nodes = xml.xpath(f'//w:MedMijNodes', namespaces=nss)[0]
+
+        def hostname(node: etree.Element) -> str:
+            return node.find('w:Hostname', namespaces=nss).text
+
+        return set(hostname(node) for node in nodes)
 
     def __iter__(self):
         return self._hostnames.__iter__()

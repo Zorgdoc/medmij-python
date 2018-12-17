@@ -3,3 +3,5 @@
 /build
 /.eggs
 __pycache__
+cli.py
+.vscode/
