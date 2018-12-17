@@ -14,7 +14,7 @@ Clone the repo and install:
 
 ```shell
 (env) $ PATH_TO_CLONE=~/example/medmij-python
-(env) $ git clone https://github.com/Zorgdoc/medmij-python.git $PATH_TO_CLONE
+(env) $ git clone https://github.com/GidsOpenStandaarden/OpenPGO-Medmij-ImplementatieBouwstenen-Python.git $PATH_TO_CLONE
 ...
 (env) $ cd $PATH_TO_CLONE
 (env) $ python setup.py install
@@ -30,7 +30,7 @@ import urllib.request
 
 import medmij
 
-WHITELIST_URL = "http://gids.samenbeter.org/openpgoexamples/1.0/whitelist-voorbeeld-v1.0.xml"
+WHITELIST_URL = "https://afsprakenstelsel.medmij.nl/download/attachments/22348803/MedMij_Whitelist_example.xml"
 
 with urllib.request.urlopen(WHITELIST_URL) as u:
     whitelist_xml = u.read()
@@ -56,7 +56,7 @@ import urllib.request
 
 import medmij
 
-ZAL_URL = "http://gids.samenbeter.org/openpgoexamples/1.0/zorgaanbiederslijst-voorbeeld-v1.0.xml"
+ZAL_URL = "https://afsprakenstelsel.medmij.nl/download/attachments/22348803/MedMij_Zorgaanbiederslijst_example.xml"
 
 with urllib.request.urlopen(ZAL_URL) as u:
     zal_xml = u.read()
@@ -80,7 +80,7 @@ import urllib.request
 
 import medmij
 
-OCL_URL = "http://gids.samenbeter.org/openpgoexamples/1.0/oauthclientlist-voorbeeld-v1.0.xml"
+OCL_URL = "https://afsprakenstelsel.medmij.nl/download/attachments/22348803/MedMij_OAuthclientlist_example.xml"
 
 with urllib.request.urlopen(OCL_URL) as u:
     ocl_xml = u.read()
@@ -96,4 +96,29 @@ Run `ocl.py`:
 ```shell
 (env) $ python ocl.py
 De Enige Echte PGO
+```
+
+### GNL
+
+```python
+import urllib.request
+
+import medmij
+
+GNL_URL = "https://afsprakenstelsel.medmij.nl/download/attachments/22348803/MedMij_Gegevensdienstnamenlijst_example.xml"
+
+with urllib.request.urlopen(GNL_URL) as u:
+    gnl_xml = u.read()
+
+gnl = medmij.GNL(xmldata=gnl_xml)
+gd = gnl["1"]
+
+print(gd.weergavenaam)
+```
+
+Run `gnl.py`:
+
+```shell
+(env) $ python gnl.py
+Basisgegevens Zorg
 ```

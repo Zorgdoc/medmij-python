@@ -18,7 +18,7 @@ class Gegevensdienst:
     Een gegevensdienst zoals beschreven op
     https://afsprakenstelsel.medmij.nl/"""
     id: str
-    display: str
+    weergavenaam: str
 
     def __repr__(self) -> str:
         return f"<Gegevensdienst {self.id!r}>"
@@ -28,10 +28,6 @@ class GNL(Mapping[str, Gegevensdienst]):
     """
     Een zorgaanbiederslijst zoals beschreven op
     https://afsprakenstelsel.medmij.nl/
-
-    >>> import medmij.tests.testdata
-    >>> gnl = GNL(medmij.tests.testdata.GNL_EXAMPLE_XML)
-    >>> GNL_URL = 'https://afsprakenstelsel.medmij.nl/download/attachments/22348803/MedMij_Gegevensdienstnamenlijst_example.xml?version=1&modificationDate=1538136425017&api=v2'
     """
     NS = "xmlns://afsprakenstelsel.medmij.nl/gegevensdienstnamenlijst/release1/"
     _parser: Optional[etree.XMLParser] = None
@@ -58,7 +54,7 @@ class GNL(Mapping[str, Gegevensdienst]):
 
             return id_, Gegevensdienst(
                 id=id_,
-                display=display_name,
+                weergavenaam=display_name,
             )
 
         gegevensdiensten = xml.xpath(f'//g:Gegevensdiensten', namespaces=nss)[0]

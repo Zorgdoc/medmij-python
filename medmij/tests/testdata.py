@@ -21,3 +21,5 @@ ZAL_XSD_FAIL2 = """<ZAL
 />"""
 
 OAUTHCLIENTLIST_EXAMPLE_XML = _load("oauthclientlist_example.xml")
+
+GNL_EXAMPLE_XML = _load("gnl_example.xml")
