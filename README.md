@@ -1,24 +1,11 @@
 # medmij-python
 
+Python implementation of de MedMij ZAL, OCL, Whitelist and GNL
+
 ## Installation
 
-First start and activate a virtualenv:
-
 ```shell
-$ python3.7 -m venv env
-$ . env/bin/activate
-(env) $
-```
-
-Clone the repo and install:
-
-```shell
-(env) $ PATH_TO_CLONE=~/example/medmij-python
-(env) $ git clone https://github.com/GidsOpenStandaarden/OpenPGO-Medmij-ImplementatieBouwstenen-Python.git $PATH_TO_CLONE
-...
-(env) $ cd $PATH_TO_CLONE
-(env) $ python setup.py install
-...
+$ pip install medmij-lists
 ```
 
 ## Usage
@@ -122,3 +109,14 @@ Run `gnl.py`:
 (env) $ python gnl.py
 Basisgegevens Zorg
 ```
+
+## Version Guidance
+
+This library follows [Semantic Versioning](https://semver.org/).
+The versions of the Afsprakenset are mapped to the versions of the library as follows:
+
+| Version Afsprakenset       | Status     | Version library |
+|----------------------------|------------|-----------------|
+| [Afsprakenset release 1.1] | Latest     | 0.1.*           |
+
+[Afsprakenset release 1.1]: https://afsprakenstelsel.medmij.nl/display/PUBLIC/Afsprakenset+release+1.1
