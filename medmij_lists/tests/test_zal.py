@@ -35,7 +35,7 @@ class TestZal(TestCase):
     def test_get_by_name(self) -> None:
         zal = medmij_lists.ZAL(testdata.ZAL_EXAMPLE_XML)
         self.assertIsInstance(zal["umcharderwijk@medmij"],
-                              medmij.Zorgaanbieder)
+                              medmij_lists.Zorgaanbieder)
         key: Any
         for key in [" umcharderwijk@medmij", "UMCharderwijk@medmij", None, 3]:
             with self.assertRaises(KeyError):
@@ -44,7 +44,7 @@ class TestZal(TestCase):
     def test_get_by_id(self) -> None:
         zal = medmij_lists.ZAL(testdata.ZAL_EXAMPLE_XML)
         za = zal["umcharderwijk@medmij"]
-        self.assertIsInstance(za.gegevensdiensten["4"], medmij.Gegevensdienst)
+        self.assertIsInstance(za.gegevensdiensten["4"], medmij_lists.Gegevensdienst)
         key: Any
         for key in 4, "1", " 4", "", None:
             with self.assertRaises(KeyError):

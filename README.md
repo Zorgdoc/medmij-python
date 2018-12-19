@@ -72,7 +72,7 @@ OCL_URL = "https://afsprakenstelsel.medmij.nl/download/attachments/22348803/MedM
 with urllib.request.urlopen(OCL_URL) as u:
     ocl_xml = u.read()
 
-ocl = medmij.OAuthclientList(xmldata=ocl_xml)
+ocl = medmij_lists.OAuthclientList(xmldata=ocl_xml)
 client = ocl["medmij.deenigeechtepgo.nl"]
 
 print(client.organisatienaam)
