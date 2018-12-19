@@ -15,14 +15,14 @@ $ pip install medmij-lists
 ```python
 import urllib.request
 
-import medmij
+import medmij_lists
 
 WHITELIST_URL = "https://afsprakenstelsel.medmij.nl/download/attachments/22348803/MedMij_Whitelist_example.xml"
 
 with urllib.request.urlopen(WHITELIST_URL) as u:
     whitelist_xml = u.read()
 
-whitelist = medmij.Whitelist(xmldata=whitelist_xml)
+whitelist = medmij_lists.Whitelist(xmldata=whitelist_xml)
 
 print('rcf-rso.nl' in whitelist)
 print('example.com' in whitelist)
@@ -41,14 +41,14 @@ False
 ```python
 import urllib.request
 
-import medmij
+import medmij_lists
 
 ZAL_URL = "https://afsprakenstelsel.medmij.nl/download/attachments/22348803/MedMij_Zorgaanbiederslijst_example.xml"
 
 with urllib.request.urlopen(ZAL_URL) as u:
     zal_xml = u.read()
 
-zal = medmij.ZAL(xmldata=zal_xml)
+zal = medmij_lists.ZAL(xmldata=zal_xml)
 za = zal["umcharderwijk@medmij"]
 print(za.gegevensdiensten["4"].authorization_endpoint_uri)
 ```
@@ -65,7 +65,7 @@ https://medmij.za982.xisbridge.net/oauth/authorize
 ```python
 import urllib.request
 
-import medmij
+import medmij_lists
 
 OCL_URL = "https://afsprakenstelsel.medmij.nl/download/attachments/22348803/MedMij_OAuthclientlist_example.xml"
 
@@ -90,14 +90,14 @@ De Enige Echte PGO
 ```python
 import urllib.request
 
-import medmij
+import medmij_lists
 
 GNL_URL = "https://afsprakenstelsel.medmij.nl/download/attachments/22348803/MedMij_Gegevensdienstnamenlijst_example.xml"
 
 with urllib.request.urlopen(GNL_URL) as u:
     gnl_xml = u.read()
 
-gnl = medmij.GNL(xmldata=gnl_xml)
+gnl = medmij_lists.GNL(xmldata=gnl_xml)
 gd = gnl["1"]
 
 print(gd.weergavenaam)

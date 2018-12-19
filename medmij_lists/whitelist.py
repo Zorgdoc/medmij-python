@@ -13,8 +13,8 @@ class Whitelist(Set[str]):
     Een whitelist zoals beschreven op https://afsprakenstelsel.medmij.nl/
 
 
-    >>> import medmij.tests.testdata
-    >>> w = Whitelist(medmij.tests.testdata.WHITELIST_EXAMPLE_XML)
+    >>> import medmij_lists.tests.testdata
+    >>> w = Whitelist(medmij_lists.tests.testdata.WHITELIST_EXAMPLE_XML)
     >>> "rcf-rso.nl" in w
     True
     >>> "taart" in w

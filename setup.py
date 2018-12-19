@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setup(
     name='medmij-lists',
     install_requires=['lxml'],
-    packages=['medmij'],
+    packages=['medmij_lists'],
     zip_safe=True,
     url='https://github.com/GidsOpenStandaarden/OpenPGO-Medmij-ImplementatieBouwstenen-Python',
     setup_requires=['nose'],
@@ -16,6 +16,6 @@ setup(
     long_description_content_type="text/markdown",
     tests_require=['nose'],
     python_require=">=3.7",
-    package_data={'medmij': ['*.xsd']},
+    package_data={'medmij_lists': ['*.xsd']},
     version='0.1.0'
 )
