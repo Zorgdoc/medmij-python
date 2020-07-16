@@ -43,8 +43,8 @@ class ZAL(Mapping[str, Zorgaanbieder]):
     Een zorgaanbiederslijst zoals beschreven op
     https://afsprakenstelsel.medmij.nl/
 
-    >>> import medmij.tests.testdata
-    >>> zal = ZAL(medmij.tests.testdata.ZAL_EXAMPLE_XML)
+    >>> import medmij_lists.tests.testdata
+    >>> zal = ZAL(medmij_lists.tests.testdata.ZAL_EXAMPLE_XML)
     >>> za = zal["umcharderwijk@medmij"]
     >>> za
     <Zorgaanbieder 'umcharderwijk@medmij'>

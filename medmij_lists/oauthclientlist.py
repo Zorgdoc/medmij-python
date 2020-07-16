@@ -26,9 +26,9 @@ class OAuthclientList(Mapping[str, OAuthclient]):
     Een OAuth Client List zoals beschreven op
     https://afsprakenstelsel.medmij.nl/
 
-    >>> import medmij.tests.testdata
+    >>> import medmij_lists.tests.testdata
     >>> ocl = OAuthclientList(
-    ...           medmij.tests.testdata.OAUTHCLIENTLIST_EXAMPLE_XML)
+    ...           medmij_lists.tests.testdata.OAUTHCLIENTLIST_EXAMPLE_XML)
     >>> len(ocl)
     2
     >>> for hostname in ocl:

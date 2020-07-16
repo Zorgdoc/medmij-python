@@ -3,3 +3,8 @@
 /build
 /.eggs
 __pycache__
+cli.py
+.vscode/
+
+.DS_Store
+._.DS_Store
